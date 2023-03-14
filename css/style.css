@@ -5,6 +5,11 @@
     box-sizing: border-box;
 }
 
+/* debug */
+body {
+    background-color: black;
+}
+
 /* LAYOUT */
 img {
     max-width: 100%;
@@ -60,4 +65,12 @@ img {
 
 .prev {
     top: 25px;
+}
+
+.item.active {
+    display: block;
+}
+
+.hidden {
+    display: none;
 }
