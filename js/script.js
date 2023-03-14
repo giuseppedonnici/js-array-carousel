@@ -62,10 +62,14 @@ console.log(nextBtn, prevBtn);
 nextBtn.addEventListener("click", function() {
 
     // togli la classe hidden al bottone prev
-    prevBtn.classList.remove("hidden");
-   
-    // Se l'indice dell'item attuale è minore della lunghezza dell'array 
-    if (activeItemIndex < (itemsArray.length -1)) {
+    // prevBtn.classList.remove("hidden"); (***PARTE DEL MILESTONE 3***)
+
+    if (activeItemIndex === itemsArray.length -1) {
+        itemsArray[activeItemIndex].classList.remove("active");
+        activeItemIndex = 0;
+        itemsArray[activeItemIndex].classList.add("active");
+    } else if (activeItemIndex < (itemsArray.length -1)) {
+        // Se l'indice dell'item attuale è minore della lunghezza dell'array 
         // rimuovi la classe active
         itemsArray[activeItemIndex].classList.remove("active");
         // incrementa di 1 l'indice attuale
@@ -73,24 +77,28 @@ nextBtn.addEventListener("click", function() {
         // aggiungi la classe active al nuovo item
         itemsArray[activeItemIndex].classList.add("active");
 
-        // Se sei arrivato all'ultimo item
-        if (activeItemIndex === itemsArray.length - 1) {
-            // aggiungi la classe hidden al bottone next
-            nextBtn.classList.add("hidden");
-        }
+        // Se sei arrivato all'ultimo item (***PARTE DEL MILESTONE 3***)
+        // if (activeItemIndex === itemsArray.length - 1) {
+        //     // aggiungi la classe hidden al bottone next
+        //     nextBtn.classList.add("hidden");
+        // }
     }
 });
 
 // Cosa succede quando clicco sul bottone prev?
 prevBtn.addEventListener("click", function() {
 
+    // Se ti trovi alla prima immagine
     if (activeItemIndex === 0) {
+        // togli la classe active dall'item corrente
         itemsArray[activeItemIndex].classList.remove("active");
+        // assegna l'indico dell'ultimo elemento dell'array
         activeItemIndex = itemsArray.length - 1;
+        // aggiungi la classe active
         itemsArray[activeItemIndex].classList.add("active");
     } else {
         // togli la classe hidden dal bottone next
-        nextBtn.classList.remove("hidden");
+        // nextBtn.classList.remove("hidden"); (***PARTE DEL MILESTONE 3***)
         // togli la classe active dall'item corrente
         itemsArray[activeItemIndex].classList.remove("active");
         // decrementa l'indice di 1
@@ -98,11 +106,9 @@ prevBtn.addEventListener("click", function() {
         // aggiungi la classe active all'item corrente
         itemsArray[activeItemIndex].classList.add("active");
     
-        // Se sei arrivato al primo item
+        // Se sei arrivato al primo item (***PARTE DEL MILESTONE 3***)
         // if (activeItemIndex === 0) {
         //     prevBtn.classList.add("hidden");
         // }
-
     }
-
 })
