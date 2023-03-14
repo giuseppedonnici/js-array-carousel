@@ -39,7 +39,7 @@ img {
 }
 
 .item img {
-    width: 100%;
+    width: 80%;
     height: 100%;
     object-fit: cover;
 }
@@ -47,7 +47,7 @@ img {
 .next,
 .prev {
     position: absolute;
-    left: 50%;
+    left: 90%;
     transform: translateX(-50%);
     z-index: 99;
     background-color: lightgray;
@@ -68,9 +68,31 @@ img {
 }
 
 .item.active {
-    display: block;
+    display: flex;
 }
 
 .hidden {
     display: none;
+}
+
+.thumb-container {
+    width: 20%;
+    height: 100%;
+    background-color: black;
+}
+
+.thumb {
+    width: 100%;
+    height: calc(100% / 5);
+    opacity: 0.6;
+}
+
+.thumb img {
+    width: 100%;
+    
+}
+
+.thumb.active {
+    opacity: unset;
+    border: 2px solid white;
 }
